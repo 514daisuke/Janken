@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id = "echo"> js 練習ページ</h1>
+    <script>
+        // 変数宣言 値はわかりやすい名前で 
+        //const　再代入できない 
+        //let 再代入できるが使うのはやめたほうがいい　行数が増えると悲しい
+        //var　危険　ダメ　宣言がいくらでもできる
+        const text1 = 'hello';
+        const text2 = 'world';
+        const text3 = "G's";
+        //\はエスケープ処理
+        const text3_1 = 'G\'s';
+        const text4 = 'ACADEMY';
+        const number1 = 100;
+        const number2 = 22;
+        const number3 = 200;
+        //NGパターン　変数の先頭が数字はダメ
+        //const 3number = 1000;
+        //計算もできる
+        const cal1 = 1 + 9;
+        const cal2 = 1 - 5;
+        const cal3 = 2 * 4;
+        const cal4 = 10 / 2;
+        const cal5 = 10 % 3;
+        //変数同士で計算もできる
+        const sum1 = number1 + number3;
+        const sum2 = text3 + text4;
+        //予約語は宣言につかえないよ
+
+        ///alert('文字列')でポップアップがでる
+        //alert('Hello Gs Academy');
+        alert(sum1);
+        alert(sum2);
+        //console.log('文字列') ブラウザ > 検証ツールのconsoleがでる
+        //console.log('Hello Gs Academy');
+        console.log(sum1);
+        console.log(sum2);
+
+    </script>
+</body>
+</html>

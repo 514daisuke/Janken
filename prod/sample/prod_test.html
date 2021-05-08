@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>じゃんけん</title>
+<script>
+(function (w, d) {
+        var _history = [];
+        var _scoreCom = 0;
+        var _scoreMan = 0;
+        var _scoreDraw = 0;
+        var _guCyoPar = ['グー', 'チョキ', 'パー'];
+        var _judge = ['引き分け', '勝ち', '負け'];
+
+        w.addEventListener('load', function () { init(); }, false);
+        function init() {
+            for (var i = 0; i < 3; i++) {
+                (function (i) {
+                    d.getElementById('hand' + i).addEventListener('click', function () { pon(i); }, false);
+                })(i);
+            }
+        }
+        function comChoice() {
+            if (_history.length < 2) {
+                return Math.floor(Math.random() * 3);
+            }
+            var manHistory = countHistory();
+            var few = (manHistory[0] < manHistory[1]) ? 0 : 1;
+            few = (Math.min(manHistory[0], manHistory[1]) < manHistory[2]) ? few : 2;
+            var com = (few == 0) ? 2 : few - 1;
+            return com;
+        }
+        function countHistory() {
+            var manHistory = [];
+            manHistory[0] = 0;
+            manHistory[1] = 0;
+            manHistory[2] = 0;
+            for (var i = 0; i < _history.length; i++) {
+                manHistory[_history[i]]++;
+            }
+            return manHistory;
+        }
+        function pon(man) {
+            var com = comChoice();
+            _history.push(man);
+            var manHistory = countHistory();
+            var result = [];
+            result.push('コンピュータ：' + _guCyoPar[com]);
+            result.push('自分の手：' + _guCyoPar[man]);
+            result.push('勝敗：' + _judge[judge(com, man)]);
+            result.push('コンピュータの勝ち数：' + _scoreCom);
+            result.push('自分の勝ち数：' + _scoreMan);
+            result.push('引き分け数：' + _scoreDraw);
+            result.push('自分のグーの数：' + manHistory[0]);
+            result.push('自分のチョキの数：' + manHistory[1]);
+            result.push('自分のパーの数：' + manHistory[2]);
+            output(result);
+        }
+        function output(result) {
+            d.getElementById('output').innerHTML = '';
+            for (var i = 0; i < result.length; i++) {
+                var div = d.createElement('div');
+                div.innerHTML = result[i];
+                d.getElementById('output').appendChild(div);
+            }
+        }
+        function judge(com, man) {
+            if (com == man) {
+                _scoreDraw++;
+                return 0;
+            }
+            if (com == 0 && man == 2 || com == 1 && man == 0 || com == 2 && man == 1) {
+                _scoreMan++;
+                return 1;
+            } else {
+                _scoreCom++;
+                return 2;
+            }
+        }
+    })(window, document);</script>
+</head>
+
+<body>
+    <h1>じゃんけん</h1>
+    <button type="button" id="hand0">グー</button>
+    <button type="button" id="hand1">チョキ</button>
+    <button type="button" id="hand2">パー</button>
+    <div id="output"></div>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/sample.css">
+  <title>おみくじ</title>
+</head>
+
+<body>
+  <header>
+    <h1>おみくじ</h1>
+  </header>
+
+  <main>
+    <ul>
+      <li id="pull">おみくじを引く</li>
+    </ul>
+    <p id="echo">結果は？</p>
+  </main>
+
+  <footer>フッター</footer>
+  <!-- すごいエンジニアが作ったすごい処理 JQuery 上から順番位ソースコードを読み込んでくるから実装前にかく-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+      //ここにJS処理を追加
+      //生JS処理
+      // document.getElementById('pull').addEventListener('click',function(){
+      //   alert('aaaa');
+      // }
+    //JQuery処理 #がidの内容
+    //selector(どこで)event(いつ)method(どうする)
+    //  $(セレクタ名).on(イベント名, function () {
+    //     実行したい処理(メソッド)
+    //   });
+    $('#pull').on('click', function () {
+      const randomNum = Math.floor(Math.random() * 5);
+
+      //デバック処理
+      //console.log(randomNum)
+
+      if (randomNum == 0) {
+        //alert('大吉');
+        //echoの部分を書き換え
+        $('#echo').text('大吉');
+      } else if (randomNum == 1) {
+        //alert('中吉');
+        $('#echo').text('中吉');
+      } else if (randomNum == 2) {
+        //alert('小吉');
+        $('#echo').text('小吉');
+      } else if (randomNum == 3) {
+        //alert('吉');
+        $('#echo').text('吉');
+      } else if (randomNum == 4) {
+        //alert('凶');
+        $('#echo').text('凶');
+      } else if (randomNum == 5) {
+        //alert('大凶');
+        $('#echo').text('大凶');
+      } else {
+        alert('外れ');
+      }
+    });
+
+  </script>
+
+</body>
+
+</html>

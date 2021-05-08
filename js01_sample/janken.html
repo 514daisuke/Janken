@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/Users/koishidaisuke/Documents/GsAcademy/20210424_f_dev08/js01_sample/css/sample.css">
+  <title>じゃんけん</title>
+</head>
+
+<body>
+  <header>
+    <h1>じゃんけん</h1>
+  </header>
+
+  <main>
+    <ul>
+      <li id="gu_btn">グー</li>
+      <li id="cho_btn">チョキ</li>
+      <li id="par_btn">パー</li>
+      <!-- <li id="gu_btn"><img src="../img/Gu.png"></li> -->
+      <!-- <li id="cho_btn"><img src="../img/Choki.png"></li> -->
+      <!-- <li id="par_btn"><img src="../img/Pa.png"></li> -->
+    </ul>
+    <div id="com_hand">コンピュータの出した手は？</div>
+    <div id="result">結果は？</div>
+  </main>
+
+  <footer>フッター</footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    //ここに処理を追加
+    //設定
+    //const number = 0 グー
+    //const number = 1 チョキ
+    //const number = 2 パー
+
+    //グーの処理
+      $('#gu_btn').on('click', function () {
+        const randomNum = Math.floor(Math.random() * 3);
+        if (randomNum == 0) {
+          $('#com_hand').text('グー');
+          $('#result').img('あいこ');
+
+        } else if (randomNum == 1) {
+          $('#com_hand').text('チョキ');
+          $('#result').text('あなたの勝ちー');
+          $('#result').show()
+        } else if (randomNum == 2) {
+          $('#com_hand').text('パー');
+          $('#result').text('あなたの負けー');
+        } else {
+          alert('エラー');
+        }
+      });
+    //チョキの処理
+      $('#cho_btn').on('click', function () {
+        const randomNum = Math.floor(Math.random() * 3);
+        if (randomNum == 0) {
+          $('#com_hand').text('グー');
+          $('#result').text('あなたの負け');
+        } else if (randomNum == 1) {
+          $('#com_hand').text('チョキ');
+          $('#result').text('あいこ');
+        } else if (randomNum == 2) {
+          $('#com_hand').text('パー');
+          $('#result').text('あなたの勝ちー');
+        } else {
+          alert('エラー');
+        }
+      });
+      //パーの処理
+      $('#par_btn').on('click', function () {
+        const randomNum = Math.floor(Math.random() * 3);
+        if (randomNum == 0) {
+          $('#com_hand').text('グー');
+          $('#result').text('あなたの勝ちー');
+        } else if (randomNum == 1) {
+          $('#com_hand').text('チョキ');
+          $('#result').text('あなたの負けー');
+        } else if (randomNum == 2) {
+          $('#com_hand').text('パー');
+          $('#result').text('あいこ');
+        } else {
+          alert('エラー');
+        }
+      });
+
+  </script>
+
+</body>
+
+</html>

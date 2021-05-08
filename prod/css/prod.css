@@ -1,0 +1,97 @@
+/* ボディ処理 */
+body {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 32px;
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* ヘッダー処理 */
+
+header {
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+/* メイン処理 */
+main {
+  border-bottom: 1px solid #ccc;
+}
+
+.answer_text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* フッター処理 */
+footer {
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+/*  ulの内容　*/
+ul {
+  padding: 0;
+  border-top: 1px solid #000000;
+  display: table; /* 定義 */
+  table-layout: fixed;
+  width: 100%;
+}
+/* liの内容 */
+li {
+  text-align: center;
+  list-style-type: none;
+  border: 1px solid #666;
+  background-color: #fff;
+  display: table-cell; /* 定義 */
+  cursor: pointer;
+}
+
+/* liのカラー */
+li:hover {
+  background: #0066cc;
+  color: #fff;
+}
+
+/* ゲームスタートボタン */
+.gamestart {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* チートモード&ゴンさんモード */
+.submode {
+  display: flex;
+  justify-content: center;
+}
+
+/* ゴンさんモードの画像編集 */
+.submode_img img {
+  margin: 0;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  height: 45%;
+}
+
+/* フッター処理 */
+.footer_title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #707070;
+  font-size: 18px;
+  color: white;
+  padding: 20px;
+}
+
+.geme_count {
+  display: flex;
+  justify-content: center;
+}

@@ -20,6 +20,10 @@ cpuRandomNum = Math.floor(Math.random() * 3);
 //ゴンさんモードは非表示
 $('#gameDisplayGonMuteki').hide();
 
+//値の保持
+//localStorage.saveKey = count[cntCPUPlay];
+
+
 /******************************
  **ジャンケン(グーをクリック)**
  *******************************/
@@ -52,11 +56,8 @@ $('#gu_btn').on('click', function clickGameStart() {
     //試合数カウント
     count["cntCPUPlay"]++;
 
-    //試合数の表示
-    $('#dispGameCnt').text(count["cntCPUPlay"]);
-
     //ボタンは非活性
-    //$('.clickBtnGonMode').attr('disabled', true);
+    $('.clickBtnGonMode').attr('disabled', true);
 });
 
 /********************************
@@ -91,11 +92,7 @@ $('#choki_btn').on('click', function clickGameStart() {
     //試合数カウント
     count["cntCPUPlay"]++;
 
-    //試合数の表示
-    $('#dispGameCnt').text(count["cntCPUPlay"]);
-
-    //ボタンは非活性
-    //$('.clickBtnGonMode').attr('disabled', true);
+    $('.clickBtnGonMode').attr('disabled', true);
 });
 
 /******************************
@@ -131,12 +128,9 @@ $('#pa_btn').on('click', function clickGameStart() {
     //試合数カウント
     count["cntCPUPlay"]++;
 
-    //試合数の表示
-    $('#dispGameCnt').text(count["cntCPUPlay"]);
-
 
     //ボタンは非活性
-    //$('.clickBtnGonMode').attr('disabled', true);
+    $('.clickBtnGonMode').attr('disabled', true);
 });
 
 
@@ -163,12 +157,13 @@ $('.clickBtnGonModeMuteki').on('click', function clickGameStart() {
     let clickBtnCode=$(this).val();
 
     //プレイヤー負け
-    $('#gameGonResultMuteki').text("Player Lose!!");
+    $('#gameGonResultMuteki').text("ドンッ！！！");
     $('#gameDisplayGonMuteki').children('img').attr('src',"img/finishend.png");
 
     //ボタンは非活性
     $('.clickBtnGonMode').attr('disabled', true);
 
+    alert("続けるには「再戦」ボタンを押してください");
 });
 
 
@@ -190,7 +185,7 @@ $('#modecheet').on('click', function clickcheet() {
 const res = window.confirm("本当にみるんですか？");
     if (res == true) {
         // ２回以上チートをしたら強制ゴンさんモード
-        if (count["countcheet"] > 1) {
+        if (count["countcheet"] > 0) {
             $('#modeGonMuteki').click();
         } else {
             if (cpuRandomNum == 0) {
